@@ -208,6 +208,7 @@
             this.buttonCopy.TabIndex = 20;
             this.buttonCopy.Text = "Copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
             // buttonDownload
             // 
@@ -264,6 +265,7 @@
             this.buttonReset.TabIndex = 26;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_click);
             // 
             // buttonThemes
             // 

@@ -9,6 +9,11 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Windows;
+
+
+
 
 namespace Subnetzrechner
 {
@@ -19,6 +24,7 @@ namespace Subnetzrechner
             InitializeComponent();
         }
 
+
         private void buttondeine_IP_Click(object sender, EventArgs e)
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -28,10 +34,13 @@ namespace Subnetzrechner
                 {
                    textBoxIP_Adresse.Text = ip.ToString();
                 }
+                //foreach(var netInterface )
+                
             }
+         
         }
 
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void buttonReset_click(object sender, EventArgs e)
         {
             textBoxAnzahlHosts.Clear();
             textBoxbis.Clear();
@@ -41,8 +50,26 @@ namespace Subnetzrechner
             textBoxIP_Adresse.Clear();
             textBoxNetzadresse.Clear();
             textBoxNetzwerkmask.Clear();
-            comboBoxCIDR_Suffix.Items.Clear();
             comboBoxCIDR_Suffix.ResetText();
         }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+          
+            Clipboard.SetText(textBoxAnzahlHosts.Text);
+            Clipboard.SetText(textBoxbis.Text);
+            Clipboard.SetText(textBoxBroadcast.Text);
+            Clipboard.SetText(textBoxHostIPSvon.Text);
+            Clipboard.SetText(textBoxInverseNetzwerkmask.Text);
+            Clipboard.SetText(textBoxIP_Adresse.Text);
+            Clipboard.SetText(textBoxNetzadresse.Text);
+            Clipboard.SetText(textBoxNetzwerkmask.Text);
+            Clipboard.SetText(comboBoxCIDR_Suffix.Text);
+
+           
+        }
+
+
+
     }
 }
