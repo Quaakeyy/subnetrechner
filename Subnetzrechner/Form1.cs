@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Windows;
+using System.Net.NetworkInformation;
 
 
 
 
 namespace Subnetzrechner
 {
+   
     public partial class ViewNetzwerkRechner : Form
     {
         public ViewNetzwerkRechner()
@@ -27,17 +29,38 @@ namespace Subnetzrechner
 
         private void buttondeine_IP_Click(object sender, EventArgs e)
         {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
+            NetworkInterface primaryInterface = GetPrimaryNetworkInterface();
+            IPInterfaceProperties ipProperties = primaryInterface.GetIPProperties();
+
+
+            foreach (UnicastIPAddressInformation ipAddressInfo in ipProperties.UnicastAddresses)
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                if (ipAddressInfo.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                 {
-                   textBoxIP_Adresse.Text = ip.ToString();
+
+                    IPAddress ipAddress = ipAddressInfo.Address;
+                    IPAddress subnetMask = ipAddressInfo.IPv4Mask;
+
+                    textBoxIP_Adresse.Text = ipAddress.ToString();
+                    textBoxInverseNetzwerkmask.Text = subnetMask.ToString();
+                    break;
                 }
-                //foreach(var netInterface )
-                
             }
-         
+
+        }
+        static NetworkInterface GetPrimaryNetworkInterface()
+        {
+            NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+            foreach (NetworkInterface networkInterface in networkInterfaces)
+            {
+                if (networkInterface.OperationalStatus == OperationalStatus.Up && networkInterface.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                {
+                    return networkInterface;
+                }
+            }
+
+            return null;
         }
 
         private void buttonReset_click(object sender, EventArgs e)
