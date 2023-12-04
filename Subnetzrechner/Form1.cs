@@ -55,7 +55,6 @@ namespace Subnetzrechner
 
         private void buttonCopy_Click(object sender, EventArgs e)
         {
-          
             Clipboard.SetText(textBoxAnzahlHosts.Text);
             Clipboard.SetText(textBoxbis.Text);
             Clipboard.SetText(textBoxBroadcast.Text);
@@ -65,11 +64,16 @@ namespace Subnetzrechner
             Clipboard.SetText(textBoxNetzadresse.Text);
             Clipboard.SetText(textBoxNetzwerkmask.Text);
             Clipboard.SetText(comboBoxCIDR_Suffix.Text);
-
-           
         }
 
-
-
+        private void buttonRandom_Click(object sender, EventArgs e)
+        {
+            Random randomIP = new Random();
+            int IPspalt1 = randomIP.Next(1, 256);
+            int IPspalt2 = randomIP.Next(1, 256);
+            int IPspalt3 = randomIP.Next(1, 256);
+            int IPspalt4 = randomIP.Next(1, 256);
+            textBoxIP_Adresse.Text = Convert.ToString(IPspalt1 + "." +IPspalt2 + "." +IPspalt3 + "." + IPspalt4);
+        }
     }
 }

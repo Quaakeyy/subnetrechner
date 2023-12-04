@@ -246,6 +246,7 @@
             this.buttonRandom.TabIndex = 24;
             this.buttonRandom.Text = "Random";
             this.buttonRandom.UseVisualStyleBackColor = true;
+            this.buttonRandom.Click += new System.EventHandler(this.buttonRandom_Click);
             // 
             // NetzwerkRechner
             // 
