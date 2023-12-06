@@ -42,7 +42,7 @@ namespace Subnetzrechner
                     IPAddress subnetMask = ipAddressInfo.IPv4Mask;
 
                     textBoxIP_Adresse.Text = ipAddress.ToString();
-                    textBoxInverseNetzwerkmask.Text = subnetMask.ToString();
+                    textBoxNetzwerkmask.Text = subnetMask.ToString();
                     break;
                 }
             }
@@ -75,20 +75,6 @@ namespace Subnetzrechner
             textBoxNetzwerkmask.Clear();
             comboBoxCIDR_Suffix.ResetText();
         }
-
-        private void buttonCopy_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(textBoxAnzahlHosts.Text);
-            Clipboard.SetText(textBoxbis.Text);
-            Clipboard.SetText(textBoxBroadcast.Text);
-            Clipboard.SetText(textBoxHostIPSvon.Text);
-            Clipboard.SetText(textBoxInverseNetzwerkmask.Text);
-            Clipboard.SetText(textBoxIP_Adresse.Text);
-            Clipboard.SetText(textBoxNetzadresse.Text);
-            Clipboard.SetText(textBoxNetzwerkmask.Text);
-            Clipboard.SetText(comboBoxCIDR_Suffix.Text);
-        }
-
         private void buttonRandom_Click(object sender, EventArgs e)
         {
             Random randomIP = new Random();
@@ -97,6 +83,11 @@ namespace Subnetzrechner
             int IPspalt3 = randomIP.Next(1, 256);
             int IPspalt4 = randomIP.Next(1, 256);
             textBoxIP_Adresse.Text = Convert.ToString(IPspalt1 + "." +IPspalt2 + "." +IPspalt3 + "." + IPspalt4);
+        }
+
+        private void buttonThemes_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(50, 50, 50);
         }
     }
 }

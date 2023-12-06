@@ -45,8 +45,7 @@
             this.textBoxBroadcast = new System.Windows.Forms.TextBox();
             this.textBoxHostIPSvon = new System.Windows.Forms.TextBox();
             this.textBoxbis = new System.Windows.Forms.TextBox();
-            this.buttonCopy = new System.Windows.Forms.Button();
-            this.buttonDownload = new System.Windows.Forms.Button();
+            this.buttonSpeichern = new System.Windows.Forms.Button();
             this.buttonVerlauf = new System.Windows.Forms.Button();
             this.buttondeine_IP = new System.Windows.Forms.Button();
             this.buttonRandom = new System.Windows.Forms.Button();
@@ -199,25 +198,14 @@
             this.textBoxbis.Size = new System.Drawing.Size(150, 20);
             this.textBoxbis.TabIndex = 19;
             // 
-            // buttonCopy
+            // buttonSpeichern
             // 
-            this.buttonCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCopy.Location = new System.Drawing.Point(12, 342);
-            this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(132, 20);
-            this.buttonCopy.TabIndex = 20;
-            this.buttonCopy.Text = "Copy";
-            this.buttonCopy.UseVisualStyleBackColor = true;
-            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
-            // 
-            // buttonDownload
-            // 
-            this.buttonDownload.Location = new System.Drawing.Point(150, 342);
-            this.buttonDownload.Name = "buttonDownload";
-            this.buttonDownload.Size = new System.Drawing.Size(136, 20);
-            this.buttonDownload.TabIndex = 21;
-            this.buttonDownload.Text = "Download";
-            this.buttonDownload.UseVisualStyleBackColor = true;
+            this.buttonSpeichern.Location = new System.Drawing.Point(77, 342);
+            this.buttonSpeichern.Name = "buttonSpeichern";
+            this.buttonSpeichern.Size = new System.Drawing.Size(136, 20);
+            this.buttonSpeichern.TabIndex = 21;
+            this.buttonSpeichern.Text = "Speichern";
+            this.buttonSpeichern.UseVisualStyleBackColor = true;
             // 
             // buttonVerlauf
             // 
@@ -276,6 +264,7 @@
             this.buttonThemes.TabIndex = 27;
             this.buttonThemes.Text = "Themes op";
             this.buttonThemes.UseVisualStyleBackColor = true;
+            this.buttonThemes.Click += new System.EventHandler(this.buttonThemes_Click);
             // 
             // buttonRechnen
             // 
@@ -340,8 +329,7 @@
             this.Controls.Add(this.buttonRandom);
             this.Controls.Add(this.buttondeine_IP);
             this.Controls.Add(this.buttonVerlauf);
-            this.Controls.Add(this.buttonDownload);
-            this.Controls.Add(this.buttonCopy);
+            this.Controls.Add(this.buttonSpeichern);
             this.Controls.Add(this.textBoxbis);
             this.Controls.Add(this.textBoxHostIPSvon);
             this.Controls.Add(this.textBoxBroadcast);
@@ -385,8 +373,7 @@
         private System.Windows.Forms.TextBox textBoxBroadcast;
         private System.Windows.Forms.TextBox textBoxHostIPSvon;
         private System.Windows.Forms.TextBox textBoxbis;
-        private System.Windows.Forms.Button buttonCopy;
-        private System.Windows.Forms.Button buttonDownload;
+        private System.Windows.Forms.Button buttonSpeichern;
         private System.Windows.Forms.Button buttonVerlauf;
         private System.Windows.Forms.Button buttondeine_IP;
         private System.Windows.Forms.Button buttonRandom;
