@@ -44,10 +44,9 @@
             this.textBoxNetzadresse = new System.Windows.Forms.TextBox();
             this.textBoxBroadcast = new System.Windows.Forms.TextBox();
             this.textBoxHostIPSvon = new System.Windows.Forms.TextBox();
-            this.textBoxbis = new System.Windows.Forms.TextBox();
+            this.textBoxBis = new System.Windows.Forms.TextBox();
             this.buttonCopy = new System.Windows.Forms.Button();
-            this.buttonDownload = new System.Windows.Forms.Button();
-            this.buttonVerlauf = new System.Windows.Forms.Button();
+            this.buttonSpeichern = new System.Windows.Forms.Button();
             this.buttondeine_IP = new System.Windows.Forms.Button();
             this.buttonRandom = new System.Windows.Forms.Button();
             this.NetzwerkRechner = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.buttonThemes = new System.Windows.Forms.Button();
             this.buttonRechnen = new System.Windows.Forms.Button();
             this.comboBoxCIDR_Suffix = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // IP_Adresse
@@ -73,26 +73,25 @@
             this.CIDR_Suffix.Name = "CIDR_Suffix";
             this.CIDR_Suffix.Size = new System.Drawing.Size(65, 13);
             this.CIDR_Suffix.TabIndex = 2;
-            this.CIDR_Suffix.Text = "CIDR Suffix:";
+            this.CIDR_Suffix.Text = "CIDR-Suffix:";
             // 
             // Netzwerkmask
             // 
             this.Netzwerkmask.AutoSize = true;
             this.Netzwerkmask.Location = new System.Drawing.Point(12, 130);
             this.Netzwerkmask.Name = "Netzwerkmask";
-            this.Netzwerkmask.Size = new System.Drawing.Size(80, 13);
+            this.Netzwerkmask.Size = new System.Drawing.Size(86, 13);
             this.Netzwerkmask.TabIndex = 3;
-            this.Netzwerkmask.Text = "Netzwerkmask:";
+            this.Netzwerkmask.Text = "Netzwerkmaske:";
             // 
             // InverseNetzwerkmask
             // 
             this.InverseNetzwerkmask.AutoSize = true;
             this.InverseNetzwerkmask.Location = new System.Drawing.Point(12, 156);
             this.InverseNetzwerkmask.Name = "InverseNetzwerkmask";
-            this.InverseNetzwerkmask.Size = new System.Drawing.Size(118, 13);
+            this.InverseNetzwerkmask.Size = new System.Drawing.Size(124, 13);
             this.InverseNetzwerkmask.TabIndex = 4;
-            this.InverseNetzwerkmask.Text = "Inverse Netzwerkmask:";
-            this.InverseNetzwerkmask.Click += new System.EventHandler(this.label4_Click);
+            this.InverseNetzwerkmask.Text = "Inverse Netzwerkmaske:";
             // 
             // AnzahlHosts
             // 
@@ -129,7 +128,6 @@
             this.HostIPSvon.Size = new System.Drawing.Size(70, 13);
             this.HostIPSvon.TabIndex = 8;
             this.HostIPSvon.Text = "Host-Ips von:";
-            this.HostIPSvon.Click += new System.EventHandler(this.label8_Click);
             // 
             // bis
             // 
@@ -142,21 +140,21 @@
             // 
             // textBoxIP_Adresse
             // 
-            this.textBoxIP_Adresse.Location = new System.Drawing.Point(136, 54);
+            this.textBoxIP_Adresse.Location = new System.Drawing.Point(140, 54);
             this.textBoxIP_Adresse.Name = "textBoxIP_Adresse";
             this.textBoxIP_Adresse.Size = new System.Drawing.Size(150, 20);
             this.textBoxIP_Adresse.TabIndex = 11;
             // 
             // textBoxNetzwerkmask
             // 
-            this.textBoxNetzwerkmask.Location = new System.Drawing.Point(136, 124);
+            this.textBoxNetzwerkmask.Location = new System.Drawing.Point(140, 124);
             this.textBoxNetzwerkmask.Name = "textBoxNetzwerkmask";
             this.textBoxNetzwerkmask.Size = new System.Drawing.Size(150, 20);
             this.textBoxNetzwerkmask.TabIndex = 13;
             // 
             // textBoxInverseNetzwerkmask
             // 
-            this.textBoxInverseNetzwerkmask.Location = new System.Drawing.Point(136, 150);
+            this.textBoxInverseNetzwerkmask.Location = new System.Drawing.Point(140, 150);
             this.textBoxInverseNetzwerkmask.Name = "textBoxInverseNetzwerkmask";
             this.textBoxInverseNetzwerkmask.ReadOnly = true;
             this.textBoxInverseNetzwerkmask.Size = new System.Drawing.Size(150, 20);
@@ -164,14 +162,14 @@
             // 
             // textBoxAnzahlHosts
             // 
-            this.textBoxAnzahlHosts.Location = new System.Drawing.Point(136, 176);
+            this.textBoxAnzahlHosts.Location = new System.Drawing.Point(140, 176);
             this.textBoxAnzahlHosts.Name = "textBoxAnzahlHosts";
             this.textBoxAnzahlHosts.Size = new System.Drawing.Size(150, 20);
             this.textBoxAnzahlHosts.TabIndex = 15;
             // 
             // textBoxNetzadresse
             // 
-            this.textBoxNetzadresse.Location = new System.Drawing.Point(136, 202);
+            this.textBoxNetzadresse.Location = new System.Drawing.Point(140, 202);
             this.textBoxNetzadresse.Name = "textBoxNetzadresse";
             this.textBoxNetzadresse.ReadOnly = true;
             this.textBoxNetzadresse.Size = new System.Drawing.Size(150, 20);
@@ -179,7 +177,7 @@
             // 
             // textBoxBroadcast
             // 
-            this.textBoxBroadcast.Location = new System.Drawing.Point(136, 228);
+            this.textBoxBroadcast.Location = new System.Drawing.Point(140, 228);
             this.textBoxBroadcast.Name = "textBoxBroadcast";
             this.textBoxBroadcast.ReadOnly = true;
             this.textBoxBroadcast.Size = new System.Drawing.Size(150, 20);
@@ -187,19 +185,19 @@
             // 
             // textBoxHostIPSvon
             // 
-            this.textBoxHostIPSvon.Location = new System.Drawing.Point(136, 267);
+            this.textBoxHostIPSvon.Location = new System.Drawing.Point(140, 267);
             this.textBoxHostIPSvon.Name = "textBoxHostIPSvon";
             this.textBoxHostIPSvon.ReadOnly = true;
             this.textBoxHostIPSvon.Size = new System.Drawing.Size(150, 20);
             this.textBoxHostIPSvon.TabIndex = 18;
             // 
-            // textBoxbis
+            // textBoxBis
             // 
-            this.textBoxbis.Location = new System.Drawing.Point(136, 293);
-            this.textBoxbis.Name = "textBoxbis";
-            this.textBoxbis.ReadOnly = true;
-            this.textBoxbis.Size = new System.Drawing.Size(150, 20);
-            this.textBoxbis.TabIndex = 19;
+            this.textBoxBis.Location = new System.Drawing.Point(140, 293);
+            this.textBoxBis.Name = "textBoxBis";
+            this.textBoxBis.ReadOnly = true;
+            this.textBoxBis.Size = new System.Drawing.Size(150, 20);
+            this.textBoxBis.TabIndex = 19;
             // 
             // buttonCopy
             // 
@@ -210,43 +208,37 @@
             this.buttonCopy.TabIndex = 20;
             this.buttonCopy.Text = "Copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
-            // buttonDownload
+            // buttonSpeichern
             // 
-            this.buttonDownload.Location = new System.Drawing.Point(150, 342);
-            this.buttonDownload.Name = "buttonDownload";
-            this.buttonDownload.Size = new System.Drawing.Size(136, 20);
-            this.buttonDownload.TabIndex = 21;
-            this.buttonDownload.Text = "Download";
-            this.buttonDownload.UseVisualStyleBackColor = true;
-            // 
-            // buttonVerlauf
-            // 
-            this.buttonVerlauf.Location = new System.Drawing.Point(12, 368);
-            this.buttonVerlauf.Name = "buttonVerlauf";
-            this.buttonVerlauf.Size = new System.Drawing.Size(132, 20);
-            this.buttonVerlauf.TabIndex = 22;
-            this.buttonVerlauf.Text = "Verlauf";
-            this.buttonVerlauf.UseVisualStyleBackColor = true;
+            this.buttonSpeichern.Location = new System.Drawing.Point(154, 342);
+            this.buttonSpeichern.Name = "buttonSpeichern";
+            this.buttonSpeichern.Size = new System.Drawing.Size(136, 20);
+            this.buttonSpeichern.TabIndex = 21;
+            this.buttonSpeichern.Text = "Speichern";
+            this.buttonSpeichern.UseVisualStyleBackColor = true;
+            this.buttonSpeichern.Click += new System.EventHandler(this.buttonSpeichern_Click);
             // 
             // buttondeine_IP
             // 
-            this.buttondeine_IP.Location = new System.Drawing.Point(150, 368);
+            this.buttondeine_IP.Location = new System.Drawing.Point(12, 368);
             this.buttondeine_IP.Name = "buttondeine_IP";
-            this.buttondeine_IP.Size = new System.Drawing.Size(136, 20);
+            this.buttondeine_IP.Size = new System.Drawing.Size(132, 20);
             this.buttondeine_IP.TabIndex = 23;
             this.buttondeine_IP.Text = "Deine IP";
             this.buttondeine_IP.UseVisualStyleBackColor = true;
-            this.buttondeine_IP.Click += new System.EventHandler(this.buttondeine_IP_Click);
+            this.buttondeine_IP.Click += new System.EventHandler(this.buttonDeine_IP_Click);
             // 
             // buttonRandom
             // 
-            this.buttonRandom.Location = new System.Drawing.Point(12, 394);
+            this.buttonRandom.Location = new System.Drawing.Point(154, 368);
             this.buttonRandom.Name = "buttonRandom";
-            this.buttonRandom.Size = new System.Drawing.Size(132, 20);
+            this.buttonRandom.Size = new System.Drawing.Size(136, 20);
             this.buttonRandom.TabIndex = 24;
             this.buttonRandom.Text = "Random";
             this.buttonRandom.UseVisualStyleBackColor = true;
+            this.buttonRandom.Click += new System.EventHandler(this.buttonRandom_Click);
             // 
             // NetzwerkRechner
             // 
@@ -255,36 +247,38 @@
             this.NetzwerkRechner.Name = "NetzwerkRechner";
             this.NetzwerkRechner.Size = new System.Drawing.Size(274, 42);
             this.NetzwerkRechner.TabIndex = 25;
-            this.NetzwerkRechner.Text = "Netzwerk Rechner";
+            this.NetzwerkRechner.Text = "IP-Subnetzrechner";
             this.NetzwerkRechner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(150, 394);
+            this.buttonReset.Location = new System.Drawing.Point(12, 446);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(136, 20);
-            this.buttonReset.TabIndex = 26;
+            this.buttonReset.Size = new System.Drawing.Size(278, 35);
+            this.buttonReset.TabIndex = 29;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonThemes
             // 
-            this.buttonThemes.Location = new System.Drawing.Point(12, 420);
+            this.buttonThemes.Location = new System.Drawing.Point(12, 394);
             this.buttonThemes.Name = "buttonThemes";
             this.buttonThemes.Size = new System.Drawing.Size(132, 20);
-            this.buttonThemes.TabIndex = 27;
-            this.buttonThemes.Text = "Themes op";
+            this.buttonThemes.TabIndex = 26;
+            this.buttonThemes.Text = "Theme wechseln";
             this.buttonThemes.UseVisualStyleBackColor = true;
+            this.buttonThemes.Click += new System.EventHandler(this.ThemeButton_Click);
             // 
             // buttonRechnen
             // 
-            this.buttonRechnen.Location = new System.Drawing.Point(150, 420);
+            this.buttonRechnen.Location = new System.Drawing.Point(154, 394);
             this.buttonRechnen.Name = "buttonRechnen";
             this.buttonRechnen.Size = new System.Drawing.Size(136, 20);
-            this.buttonRechnen.TabIndex = 28;
+            this.buttonRechnen.TabIndex = 27;
             this.buttonRechnen.Text = "Berechnen";
             this.buttonRechnen.UseVisualStyleBackColor = true;
+            this.buttonRechnen.Click += new System.EventHandler(this.buttonBerechnen_Click);
             // 
             // comboBoxCIDR_Suffix
             // 
@@ -322,16 +316,27 @@
             "30",
             "31",
             "32"});
-            this.comboBoxCIDR_Suffix.Location = new System.Drawing.Point(136, 86);
+            this.comboBoxCIDR_Suffix.Location = new System.Drawing.Point(140, 86);
             this.comboBoxCIDR_Suffix.Name = "comboBoxCIDR_Suffix";
             this.comboBoxCIDR_Suffix.Size = new System.Drawing.Size(150, 21);
-            this.comboBoxCIDR_Suffix.TabIndex = 29;
+            this.comboBoxCIDR_Suffix.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 420);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(278, 20);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Letzte Berechnung ansehen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonLetzteBerechnungAnsehen_Click);
             // 
             // ViewNetzwerkRechner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 451);
+            this.ClientSize = new System.Drawing.Size(302, 490);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCIDR_Suffix);
             this.Controls.Add(this.buttonRechnen);
             this.Controls.Add(this.buttonThemes);
@@ -339,10 +344,9 @@
             this.Controls.Add(this.NetzwerkRechner);
             this.Controls.Add(this.buttonRandom);
             this.Controls.Add(this.buttondeine_IP);
-            this.Controls.Add(this.buttonVerlauf);
-            this.Controls.Add(this.buttonDownload);
+            this.Controls.Add(this.buttonSpeichern);
             this.Controls.Add(this.buttonCopy);
-            this.Controls.Add(this.textBoxbis);
+            this.Controls.Add(this.textBoxBis);
             this.Controls.Add(this.textBoxHostIPSvon);
             this.Controls.Add(this.textBoxBroadcast);
             this.Controls.Add(this.textBoxNetzadresse);
@@ -362,7 +366,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ViewNetzwerkRechner";
             this.Text = "Subnetzrechner";
-            this.Load += new System.EventHandler(this.ViewNetzwerkRechner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,10 +388,9 @@
         private System.Windows.Forms.TextBox textBoxNetzadresse;
         private System.Windows.Forms.TextBox textBoxBroadcast;
         private System.Windows.Forms.TextBox textBoxHostIPSvon;
-        private System.Windows.Forms.TextBox textBoxbis;
+        private System.Windows.Forms.TextBox textBoxBis;
         private System.Windows.Forms.Button buttonCopy;
-        private System.Windows.Forms.Button buttonDownload;
-        private System.Windows.Forms.Button buttonVerlauf;
+        private System.Windows.Forms.Button buttonSpeichern;
         private System.Windows.Forms.Button buttondeine_IP;
         private System.Windows.Forms.Button buttonRandom;
         private System.Windows.Forms.Label NetzwerkRechner;
@@ -396,6 +398,7 @@
         private System.Windows.Forms.Button buttonThemes;
         private System.Windows.Forms.Button buttonRechnen;
         private System.Windows.Forms.ComboBox comboBoxCIDR_Suffix;
+        private System.Windows.Forms.Button button1;
     }
 }
 
