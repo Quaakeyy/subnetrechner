@@ -475,7 +475,14 @@ namespace Subnetzrechner
 
         private void statusStripEinstlleungInfo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+           
+        }
+
+        private void ViewNetzwerkRechner_Load(object sender, EventArgs e)
+        {
             this.statusStripEinstlleungInfo.SizingGrip = false;
+            ShowInTaskbar = true;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
     }
 }

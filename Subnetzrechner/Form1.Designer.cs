@@ -436,6 +436,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewNetzwerkRechner";
             this.Text = "Subnetzrechner";
+            this.Load += new System.EventHandler(this.ViewNetzwerkRechner_Load);
             this.statusStripEinstlleungInfo.ResumeLayout(false);
             this.statusStripEinstlleungInfo.PerformLayout();
             this.ResumeLayout(false);
