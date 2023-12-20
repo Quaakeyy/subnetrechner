@@ -14,40 +14,11 @@ namespace Subnetzrechner
         private bool isDarkTheme = false;
         private int calculationCounter = 0; // Zählt die Anzahl der durchgeführten Berechnungen
         private string lastCalculationXmlPath; // Speichert den Pfad zur letzten Berechnung
-
+        
 
         public ViewNetzwerkRechner()
         {
             InitializeComponent();
-        }
-
-        private void SetTheme()
-        {
-            // Verbessere die Lesbarkeit mit ternärem Operator
-            if (isDarkTheme)
-            {
-                SetLightTheme();
-            }
-            else
-            {
-                SetDarkTheme();
-            }
-        }
-
-        private void SetDarkTheme()
-        {
-            this.BackColor = Color.FromArgb(31, 31, 31); // Hintergrundfarbe
-            this.ForeColor = Color.White; // Textfarbe
-            UpdateButtonStyles(this, Color.Black);
-            isDarkTheme = true;
-        }
-
-        private void SetLightTheme()
-        {
-            this.BackColor = SystemColors.Control;
-            this.ForeColor = SystemColors.ControlText;
-            UpdateButtonStyles(this, SystemColors.ControlText);
-            isDarkTheme = false;
         }
 
         private void UpdateButtonStyles(Control control, Color textColor)
@@ -65,13 +36,6 @@ namespace Subnetzrechner
                 }
             }
         }
-
-        private void ThemeButton_Click(object sender, EventArgs e)
-        {
-            SetTheme();
-        }
-
-
 
         private void buttonDeine_IP_Click(object sender, EventArgs e)
         {
@@ -149,9 +113,6 @@ namespace Subnetzrechner
             // Hier können Sie auch die Ergebnisse zurücksetzen oder die Reset-Logik implementieren
         }
 
-
-
-
         private void buttonRandom_Click(object sender, EventArgs e)
         {
             Random random = new Random();
@@ -175,9 +136,6 @@ namespace Subnetzrechner
             // Führen Sie die Berechnung durch und speichern Sie die Ergebnisse
             BerechnungDurchführenNeu();
         }
-
-
-
 
         private void buttonBerechnen_Click(object sender, EventArgs e)
         {
@@ -344,15 +302,6 @@ namespace Subnetzrechner
             return $"{maskBytes[0]}.{maskBytes[1]}.{maskBytes[2]}.{maskBytes[3]}";
         }
 
-
-
-
-
-
-
-
-
-
         private string CalculateInverseSubnetMask(int cidrSuffix)
         {
             if (cidrSuffix < 0 || cidrSuffix > 32)
@@ -489,6 +438,44 @@ namespace Subnetzrechner
             }
         }
 
+        private void dunkelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(31,31,31); 
+            this.ForeColor = Color.White; 
+            UpdateButtonStyles(this, Color.Black);
+        }
 
+        private void hellToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = SystemColors.Control;
+            this.ForeColor = SystemColors.ControlText;
+            UpdateButtonStyles(this, SystemColors.ControlText);
+        }
+
+        private void rotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(150,0,0); 
+            this.ForeColor = Color.White; 
+            UpdateButtonStyles(this, Color.Black);  
+        }
+
+        private void grünToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(0,150,0); 
+            this.ForeColor = Color.White; 
+            UpdateButtonStyles(this, Color.Black); 
+        }
+
+        private void blauToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(0,0,150); 
+            this.ForeColor = Color.White; 
+            UpdateButtonStyles(this, Color.Black); 
+        }
+
+        private void statusStripEinstlleungInfo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            this.statusStripEinstlleungInfo.SizingGrip = false;
+        }
     }
 }

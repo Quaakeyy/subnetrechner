@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewNetzwerkRechner));
             this.IP_Adresse = new System.Windows.Forms.Label();
             this.CIDR_Suffix = new System.Windows.Forms.Label();
             this.Netzwerkmask = new System.Windows.Forms.Label();
@@ -51,10 +52,18 @@
             this.buttonRandom = new System.Windows.Forms.Button();
             this.NetzwerkRechner = new System.Windows.Forms.Label();
             this.buttonReset = new System.Windows.Forms.Button();
-            this.buttonThemes = new System.Windows.Forms.Button();
             this.buttonRechnen = new System.Windows.Forms.Button();
             this.comboBoxCIDR_Suffix = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.statusStripEinstlleungInfo = new System.Windows.Forms.StatusStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.hintergrundfarbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dunkelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grünToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStripEinstlleungInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // IP_Adresse
@@ -202,9 +211,9 @@
             // buttonCopy
             // 
             this.buttonCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCopy.Location = new System.Drawing.Point(12, 342);
+            this.buttonCopy.Location = new System.Drawing.Point(12, 458);
             this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(132, 20);
+            this.buttonCopy.Size = new System.Drawing.Size(64, 20);
             this.buttonCopy.TabIndex = 20;
             this.buttonCopy.Text = "Copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
@@ -212,9 +221,9 @@
             // 
             // buttonSpeichern
             // 
-            this.buttonSpeichern.Location = new System.Drawing.Point(154, 342);
+            this.buttonSpeichern.Location = new System.Drawing.Point(226, 458);
             this.buttonSpeichern.Name = "buttonSpeichern";
-            this.buttonSpeichern.Size = new System.Drawing.Size(136, 20);
+            this.buttonSpeichern.Size = new System.Drawing.Size(64, 20);
             this.buttonSpeichern.TabIndex = 21;
             this.buttonSpeichern.Text = "Speichern";
             this.buttonSpeichern.UseVisualStyleBackColor = true;
@@ -222,9 +231,9 @@
             // 
             // buttondeine_IP
             // 
-            this.buttondeine_IP.Location = new System.Drawing.Point(12, 368);
+            this.buttondeine_IP.Location = new System.Drawing.Point(120, 458);
             this.buttondeine_IP.Name = "buttondeine_IP";
-            this.buttondeine_IP.Size = new System.Drawing.Size(132, 20);
+            this.buttondeine_IP.Size = new System.Drawing.Size(58, 20);
             this.buttondeine_IP.TabIndex = 23;
             this.buttondeine_IP.Text = "Deine IP";
             this.buttondeine_IP.UseVisualStyleBackColor = true;
@@ -232,9 +241,9 @@
             // 
             // buttonRandom
             // 
-            this.buttonRandom.Location = new System.Drawing.Point(154, 368);
+            this.buttonRandom.Location = new System.Drawing.Point(166, 397);
             this.buttonRandom.Name = "buttonRandom";
-            this.buttonRandom.Size = new System.Drawing.Size(136, 20);
+            this.buttonRandom.Size = new System.Drawing.Size(106, 20);
             this.buttonRandom.TabIndex = 24;
             this.buttonRandom.Text = "Random";
             this.buttonRandom.UseVisualStyleBackColor = true;
@@ -242,39 +251,29 @@
             // 
             // NetzwerkRechner
             // 
-            this.NetzwerkRechner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NetzwerkRechner.Location = new System.Drawing.Point(12, 9);
+            this.NetzwerkRechner.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NetzwerkRechner.Location = new System.Drawing.Point(59, 22);
             this.NetzwerkRechner.Name = "NetzwerkRechner";
-            this.NetzwerkRechner.Size = new System.Drawing.Size(274, 42);
+            this.NetzwerkRechner.Size = new System.Drawing.Size(185, 23);
             this.NetzwerkRechner.TabIndex = 25;
             this.NetzwerkRechner.Text = "IP-Subnetzrechner";
             this.NetzwerkRechner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(12, 446);
+            this.buttonReset.Location = new System.Drawing.Point(166, 345);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(278, 35);
+            this.buttonReset.Size = new System.Drawing.Size(106, 20);
             this.buttonReset.TabIndex = 29;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
-            // buttonThemes
-            // 
-            this.buttonThemes.Location = new System.Drawing.Point(12, 394);
-            this.buttonThemes.Name = "buttonThemes";
-            this.buttonThemes.Size = new System.Drawing.Size(132, 20);
-            this.buttonThemes.TabIndex = 26;
-            this.buttonThemes.Text = "Theme wechseln";
-            this.buttonThemes.UseVisualStyleBackColor = true;
-            this.buttonThemes.Click += new System.EventHandler(this.ThemeButton_Click);
-            // 
             // buttonRechnen
             // 
-            this.buttonRechnen.Location = new System.Drawing.Point(154, 394);
+            this.buttonRechnen.Location = new System.Drawing.Point(166, 319);
             this.buttonRechnen.Name = "buttonRechnen";
-            this.buttonRechnen.Size = new System.Drawing.Size(136, 20);
+            this.buttonRechnen.Size = new System.Drawing.Size(106, 20);
             this.buttonRechnen.TabIndex = 27;
             this.buttonRechnen.Text = "Berechnen";
             this.buttonRechnen.UseVisualStyleBackColor = true;
@@ -323,23 +322,93 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 420);
+            this.button1.Location = new System.Drawing.Point(166, 371);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(278, 20);
+            this.button1.Size = new System.Drawing.Size(106, 20);
             this.button1.TabIndex = 28;
-            this.button1.Text = "Letzte Berechnung ansehen";
+            this.button1.Text = "Letzte Berechnung";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonLetzteBerechnungAnsehen_Click);
+            // 
+            // statusStripEinstlleungInfo
+            // 
+            this.statusStripEinstlleungInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusStripEinstlleungInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+            this.statusStripEinstlleungInfo.Location = new System.Drawing.Point(0, 0);
+            this.statusStripEinstlleungInfo.Name = "statusStripEinstlleungInfo";
+            this.statusStripEinstlleungInfo.Size = new System.Drawing.Size(302, 22);
+            this.statusStripEinstlleungInfo.TabIndex = 30;
+            this.statusStripEinstlleungInfo.Text = "statusStrip1";
+            this.statusStripEinstlleungInfo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStripEinstlleungInfo_ItemClicked);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hintergrundfarbeToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = global::Subnetzrechner.Properties.Resources.settingscog_87317;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButtonEinstellung";
+            // 
+            // hintergrundfarbeToolStripMenuItem
+            // 
+            this.hintergrundfarbeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dunkelToolStripMenuItem,
+            this.hellToolStripMenuItem,
+            this.rotToolStripMenuItem,
+            this.grünToolStripMenuItem,
+            this.blauToolStripMenuItem});
+            this.hintergrundfarbeToolStripMenuItem.Name = "hintergrundfarbeToolStripMenuItem";
+            this.hintergrundfarbeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hintergrundfarbeToolStripMenuItem.Text = "Hintergrundfarbe";
+            // 
+            // dunkelToolStripMenuItem
+            // 
+            this.dunkelToolStripMenuItem.Name = "dunkelToolStripMenuItem";
+            this.dunkelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dunkelToolStripMenuItem.Text = "Dunkel";
+            this.dunkelToolStripMenuItem.Click += new System.EventHandler(this.dunkelToolStripMenuItem_Click);
+            // 
+            // hellToolStripMenuItem
+            // 
+            this.hellToolStripMenuItem.Name = "hellToolStripMenuItem";
+            this.hellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hellToolStripMenuItem.Text = "Hell";
+            this.hellToolStripMenuItem.Click += new System.EventHandler(this.hellToolStripMenuItem_Click);
+            // 
+            // rotToolStripMenuItem
+            // 
+            this.rotToolStripMenuItem.Name = "rotToolStripMenuItem";
+            this.rotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rotToolStripMenuItem.Text = "Rot";
+            this.rotToolStripMenuItem.Click += new System.EventHandler(this.rotToolStripMenuItem_Click);
+            // 
+            // grünToolStripMenuItem
+            // 
+            this.grünToolStripMenuItem.Name = "grünToolStripMenuItem";
+            this.grünToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grünToolStripMenuItem.Text = "Grün";
+            this.grünToolStripMenuItem.Click += new System.EventHandler(this.grünToolStripMenuItem_Click);
+            // 
+            // blauToolStripMenuItem
+            // 
+            this.blauToolStripMenuItem.Name = "blauToolStripMenuItem";
+            this.blauToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blauToolStripMenuItem.Text = "Blau";
+            this.blauToolStripMenuItem.Click += new System.EventHandler(this.blauToolStripMenuItem_Click);
             // 
             // ViewNetzwerkRechner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 490);
+            this.Controls.Add(this.statusStripEinstlleungInfo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCIDR_Suffix);
             this.Controls.Add(this.buttonRechnen);
-            this.Controls.Add(this.buttonThemes);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.NetzwerkRechner);
             this.Controls.Add(this.buttonRandom);
@@ -364,8 +433,11 @@
             this.Controls.Add(this.CIDR_Suffix);
             this.Controls.Add(this.IP_Adresse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewNetzwerkRechner";
             this.Text = "Subnetzrechner";
+            this.statusStripEinstlleungInfo.ResumeLayout(false);
+            this.statusStripEinstlleungInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,10 +467,17 @@
         private System.Windows.Forms.Button buttonRandom;
         private System.Windows.Forms.Label NetzwerkRechner;
         private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.Button buttonThemes;
         private System.Windows.Forms.Button buttonRechnen;
         private System.Windows.Forms.ComboBox comboBoxCIDR_Suffix;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.StatusStrip statusStripEinstlleungInfo;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem hintergrundfarbeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dunkelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hellToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grünToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blauToolStripMenuItem;
     }
 }
 
