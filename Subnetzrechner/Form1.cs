@@ -154,12 +154,7 @@ namespace Subnetzrechner
                     comboBoxCIDR_Suffix.Focus();
                 }
 
-                string IpAddresse = textBoxIP_Adresse.Text;
-                if (IpAddressFalsch(IpAddresse))
-                {
-                    MessageBox.Show("Sie können nur werte 0-255.0-255.0-255.0-255 eintragen, Bitte überprüfen Sie die Eingaben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBoxIP_Adresse.Text = "";
-                }
+       
             }
             catch
             {
@@ -184,35 +179,7 @@ namespace Subnetzrechner
                 MessageBox.Show("Ungültige Berechnung.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-//dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-        private bool IpAddressFalsch(string IpAddresse)
-        {
-            string[] octets = IpAddresse.Split('.');
-
-            // Überprüfe, ob die IP-Adresse aus genau 4 Oktetten besteht
-            if (octets.Length != 1324)
-            {
-                return false;
-            }
-
-            foreach (string octet in octets)
-            {
-                // Versuche, das Oktett in einen Integer zu konvertieren
-                if (!int.TryParse(octet, out int value))
-                {
-                    return false;
-                }
-
-                // Überprüfe, ob der Wert zwischen 0 und 255 liegt
-                if (value < 0 || value > 255)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-//dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+        //sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
         private bool BerechnungDurchführenNeu()
         {
             if (int.TryParse(comboBoxCIDR_Suffix.Text, out int cidrSuffix))
@@ -221,6 +188,15 @@ namespace Subnetzrechner
                 textBoxInverseNetzwerkmask.Text = inverseSubnetMask;
 
                 string networkAddress = CalculateNetworkAddress(textBoxIP_Adresse.Text, cidrSuffix);
+
+                // Überprüfen, ob CalculateNetworkAddress erfolgreich war
+                if (string.IsNullOrEmpty(networkAddress))
+                {
+                    // Lösche die anderen Ergebnisse
+                    ClearResults();
+                    return false; // Berechnung nicht erfolgreich
+                }
+
                 textBoxNetzadresse.Text = networkAddress;
 
                 string broadcastAddress = CalculateBroadcastAddress(textBoxIP_Adresse.Text, cidrSuffix);
@@ -240,10 +216,34 @@ namespace Subnetzrechner
             }
             else
             {
-                return false; // Ungültiges CIDR-Suffix
+                // Ungültiges CIDR-Suffix, Lösche die Ergebnisse
+                ClearResults();
+                return false; // Berechnung nicht erfolgreich
             }
         }
+        private void ClearResultsFromXml()
+        {
+            // Implementiere Logik zum Löschen der Ergebnisse aus der XML-Datei
+            // Dies könnte das Überschreiben der XML-Datei mit leeren Daten oder das Löschen der Datei selbst umfassen
+            
+            // Beispiel:
+            // File.Delete("DeineXmlDatei.xml");
+            File.Delete("berechnungen.xml");
+        }
+        private void ClearResults()
+        {
+            // Hier alle Ergebnis-Textboxen oder andere Steuerelemente leeren oder zurücksetzen
+            textBoxInverseNetzwerkmask.Text = string.Empty;
+            textBoxNetzadresse.Text = string.Empty;
+            textBoxBroadcast.Text = string.Empty;
+            textBoxHostIPSvon.Text = string.Empty;
+            textBoxBis.Text = string.Empty;
+            textBoxAnzahlHosts.Text = string.Empty;
 
+            // Ergebnisse aus der XML-Datei löschen
+            ClearResultsFromXml();
+        }
+        //ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 
         private void buttonSpeichern_Click(object sender, EventArgs e)
         {
@@ -384,69 +384,98 @@ namespace Subnetzrechner
 
             return new IPAddress(inverseMaskBytes).ToString();
         }
-
+        //rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
         private string CalculateNetworkAddress(string ipAddress, int cidrSuffix)
         {
-            IPAddress ip = IPAddress.Parse(ipAddress); //fehler
-            byte[] ipBytes = ip.GetAddressBytes();
-            byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
-
-            byte[] networkBytes = new byte[ipBytes.Length];
-            for (int i = 0; i < ipBytes.Length; i++)
+            try
             {
-                networkBytes[i] = (byte)(ipBytes[i] & maskBytes[i]);
-            }
+                IPAddress ip = IPAddress.Parse(ipAddress);
+                byte[] ipBytes = ip.GetAddressBytes();
+                byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
 
-            return new IPAddress(networkBytes).ToString();
+                byte[] networkBytes = new byte[ipBytes.Length];
+                for (int i = 0; i < ipBytes.Length; i++)
+                {
+                    networkBytes[i] = (byte)(ipBytes[i] & maskBytes[i]);
+                }
+
+                return new IPAddress(networkBytes).ToString();
+            }
+            catch (FormatException)
+            {
+                // Fehlerbehandlung für ungültige IP-Adresse
+                MessageBox.Show("Fehler: Die eingegebene IP-Adresse ist ungültig.", "Fehler");
+                return string.Empty; // oder einen anderen Platzhalterwert zurückgeben, je nach Bedarf
+            }
         }
-        //
+        //rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
         private byte[] CalculateSubnetMaskBytes(int cidrSuffix)
         {
             uint subnetMaskValue = 0xFFFFFFFF << (32 - cidrSuffix);
             byte[] maskBytes = BitConverter.GetBytes(subnetMaskValue).Reverse().ToArray();
             return maskBytes;
         }
+        
         private string CalculateBroadcastAddress(string ipAddress, int cidrSuffix)
         {
-            IPAddress ip = IPAddress.Parse(ipAddress);
-            byte[] ipBytes = ip.GetAddressBytes();
-            byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
-
-            byte[] invertedMaskBytes = maskBytes.Select(b => (byte)~b).ToArray();
-            byte[] broadcastBytes = new byte[ipBytes.Length];
-            for (int i = 0; i < ipBytes.Length; i++)
+            try
             {
-                broadcastBytes[i] = (byte)(ipBytes[i] | invertedMaskBytes[i]);
+                IPAddress ip = IPAddress.Parse(ipAddress);
+                byte[] ipBytes = ip.GetAddressBytes();
+                byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
+
+                byte[] invertedMaskBytes = maskBytes.Select(b => (byte)~b).ToArray();
+                byte[] broadcastBytes = new byte[ipBytes.Length];
+                for (int i = 0; i < ipBytes.Length; i++)
+                {
+                    broadcastBytes[i] = (byte)(ipBytes[i] | invertedMaskBytes[i]);
+                }
+
+                return new IPAddress(broadcastBytes).ToString();
             }
-
-            return new IPAddress(broadcastBytes).ToString();
+            catch (FormatException)
+            {
+                
+                return string.Empty; 
+            }
         }
-
+        
         private void CalculateHostIPs(string ipAddress, int cidrSuffix, out string hostIPvon, out string hostIPbis)
         {
-            IPAddress ip = IPAddress.Parse(ipAddress);
-            byte[] ipBytes = ip.GetAddressBytes();
-            byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
+            hostIPvon = string.Empty;
+            hostIPbis = string.Empty;
 
-            byte[] invertedMaskBytes = maskBytes.Select(b => (byte)~b).ToArray();
-            byte[] networkBytes = new byte[ipBytes.Length];
-            byte[] broadcastBytes = new byte[ipBytes.Length];
-
-            for (int i = 0; i < ipBytes.Length; i++)
+            try
             {
-                networkBytes[i] = (byte)(ipBytes[i] & maskBytes[i]);
-                broadcastBytes[i] = (byte)(ipBytes[i] | invertedMaskBytes[i]);
+                IPAddress ip = IPAddress.Parse(ipAddress);
+                byte[] ipBytes = ip.GetAddressBytes();
+                byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
+
+                byte[] invertedMaskBytes = maskBytes.Select(b => (byte)~b).ToArray();
+                byte[] networkBytes = new byte[ipBytes.Length];
+                byte[] broadcastBytes = new byte[ipBytes.Length];
+
+                for (int i = 0; i < ipBytes.Length; i++)
+                {
+                    networkBytes[i] = (byte)(ipBytes[i] & maskBytes[i]);
+                    broadcastBytes[i] = (byte)(ipBytes[i] | invertedMaskBytes[i]);
+                }
+
+                // Hier kannst du deine eigene Logik implementieren, um die erste und letzte Host-IP zu bestimmen.
+                // Derzeit sind hier nur Beispiele.
+                networkBytes[networkBytes.Length - 1]++; // Beispiel: Erste Host-IP
+                broadcastBytes[broadcastBytes.Length - 1]--; // Beispiel: Letzte Host-IP
+
+                hostIPvon = new IPAddress(networkBytes).ToString();
+                hostIPbis = new IPAddress(broadcastBytes).ToString();
             }
-
-            // Hier kannst du deine eigene Logik implementieren, um die erste und letzte Host-IP zu bestimmen.
-            // Derzeit sind hier nur Beispiele.
-            networkBytes[networkBytes.Length - 1]++; // Beispiel: Erste Host-IP
-            broadcastBytes[broadcastBytes.Length - 1]--; // Beispiel: Letzte Host-IP
-
-            hostIPvon = new IPAddress(networkBytes).ToString();
-            hostIPbis = new IPAddress(broadcastBytes).ToString();
+            catch (FormatException)
+            {
+                
+                return;
+            }
         }
-
+        
         private int CalculateNumberOfHosts(int cidrSuffix)
         {
             // Hier füge deine Logik zur Berechnung der Anzahl der Hosts ein
