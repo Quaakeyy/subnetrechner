@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Security.Policy;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -14,7 +15,7 @@ namespace Subnetzrechner
         private bool isDarkTheme = false;
         private int calculationCounter = 0; // Zählt die Anzahl der durchgeführten Berechnungen
         private string lastCalculationXmlPath; // Speichert den Pfad zur letzten Berechnung
-        
+
 
         public ViewNetzwerkRechner()
         {
@@ -139,16 +140,79 @@ namespace Subnetzrechner
 
         private void buttonBerechnen_Click(object sender, EventArgs e)
         {
+            
+            try
+            {   
+                int cidrSuffix = int.Parse(comboBoxCIDR_Suffix.Text);
+                if (cidrSuffix < 0 || cidrSuffix > 32)
+                {
+                    MessageBox.Show("Du kannst nur werte 0-32 eintragen, Bitte überprüfen Sie die Eingaben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    comboBoxCIDR_Suffix.Text = "";
+                }
+                if (comboBoxCIDR_Suffix.Text.Length == 2)
+                {
+                    comboBoxCIDR_Suffix.Focus();
+                }
+
+                string IpAddresse = textBoxIP_Adresse.Text;
+                if (IpAddressFalsch(IpAddresse))
+                {
+                    MessageBox.Show("Sie können nur werte 0-255.0-255.0-255.0-255 eintragen, Bitte überprüfen Sie die Eingaben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxIP_Adresse.Text = "";
+                }
+            }
+            catch
+            {
+                if (comboBoxCIDR_Suffix.Text != "")
+                {
+                    MessageBox.Show("Du kannst nur werte 0-32 eintragen, Bitte überprüfen Sie die Eingaben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    comboBoxCIDR_Suffix.Text = "";
+                }
+                if (textBoxIP_Adresse.Text != "")
+                {
+                    MessageBox.Show("Sie können nur werte 0-255.0-255.0-255.0-255 eintragen, Bitte überprüfen Sie die Eingaben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   textBoxIP_Adresse.Text = "";
+                }
+            }
+
             if (BerechnungDurchführenNeu())
             {
                 MessageBox.Show("Berechnung erfolgreich durchgeführt und Ergebnisse gespeichert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Ungültige Berechnung. Bitte überprüfen Sie die Eingaben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ungültige Berechnung.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+//dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+        private bool IpAddressFalsch(string IpAddresse)
+        {
+            string[] octets = IpAddresse.Split('.');
 
+            // Überprüfe, ob die IP-Adresse aus genau 4 Oktetten besteht
+            if (octets.Length != 1324)
+            {
+                return false;
+            }
+
+            foreach (string octet in octets)
+            {
+                // Versuche, das Oktett in einen Integer zu konvertieren
+                if (!int.TryParse(octet, out int value))
+                {
+                    return false;
+                }
+
+                // Überprüfe, ob der Wert zwischen 0 und 255 liegt
+                if (value < 0 || value > 255)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+//dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         private bool BerechnungDurchführenNeu()
         {
             if (int.TryParse(comboBoxCIDR_Suffix.Text, out int cidrSuffix))
@@ -320,10 +384,10 @@ namespace Subnetzrechner
 
             return new IPAddress(inverseMaskBytes).ToString();
         }
-        
+
         private string CalculateNetworkAddress(string ipAddress, int cidrSuffix)
         {
-            IPAddress ip = IPAddress.Parse(ipAddress);
+            IPAddress ip = IPAddress.Parse(ipAddress); //fehler
             byte[] ipBytes = ip.GetAddressBytes();
             byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
 
@@ -393,7 +457,7 @@ namespace Subnetzrechner
         {
             string allText = GenerateResultsString();
             Clipboard.SetText(allText);
-            
+
         }
 
         private void buttonLetzteBerechnungAnsehen_Click(object sender, EventArgs e)
@@ -440,8 +504,8 @@ namespace Subnetzrechner
 
         private void dunkelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(31,31,31); 
-            this.ForeColor = Color.White; 
+            this.BackColor = Color.FromArgb(31, 31, 31);
+            this.ForeColor = Color.White;
             UpdateButtonStyles(this, Color.Black);
         }
 
@@ -454,28 +518,28 @@ namespace Subnetzrechner
 
         private void rotToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(150,0,0); 
-            this.ForeColor = Color.White; 
-            UpdateButtonStyles(this, Color.Black);  
+            this.BackColor = Color.FromArgb(150, 0, 0);
+            this.ForeColor = Color.White;
+            UpdateButtonStyles(this, Color.Black);
         }
 
         private void grünToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(0,150,0); 
-            this.ForeColor = Color.White; 
-            UpdateButtonStyles(this, Color.Black); 
+            this.BackColor = Color.FromArgb(0, 150, 0);
+            this.ForeColor = Color.White;
+            UpdateButtonStyles(this, Color.Black);
         }
 
         private void blauToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(0,0,150); 
-            this.ForeColor = Color.White; 
-            UpdateButtonStyles(this, Color.Black); 
+            this.BackColor = Color.FromArgb(0, 0, 150);
+            this.ForeColor = Color.White;
+            UpdateButtonStyles(this, Color.Black);
         }
 
         private void statusStripEinstlleungInfo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-           
+
         }
 
         private void ViewNetzwerkRechner_Load(object sender, EventArgs e)
@@ -483,6 +547,12 @@ namespace Subnetzrechner
             this.statusStripEinstlleungInfo.SizingGrip = false;
             ShowInTaskbar = true;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        }
+
+        private void comboBoxCIDR_Suffix_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }

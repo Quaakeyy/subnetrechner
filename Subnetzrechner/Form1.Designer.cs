@@ -319,6 +319,7 @@
             this.comboBoxCIDR_Suffix.Name = "comboBoxCIDR_Suffix";
             this.comboBoxCIDR_Suffix.Size = new System.Drawing.Size(150, 21);
             this.comboBoxCIDR_Suffix.TabIndex = 12;
+            this.comboBoxCIDR_Suffix.SelectedIndexChanged += new System.EventHandler(this.comboBoxCIDR_Suffix_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -362,41 +363,41 @@
             this.grünToolStripMenuItem,
             this.blauToolStripMenuItem});
             this.hintergrundfarbeToolStripMenuItem.Name = "hintergrundfarbeToolStripMenuItem";
-            this.hintergrundfarbeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hintergrundfarbeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.hintergrundfarbeToolStripMenuItem.Text = "Hintergrundfarbe";
             // 
             // dunkelToolStripMenuItem
             // 
             this.dunkelToolStripMenuItem.Name = "dunkelToolStripMenuItem";
-            this.dunkelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dunkelToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.dunkelToolStripMenuItem.Text = "Dunkel";
             this.dunkelToolStripMenuItem.Click += new System.EventHandler(this.dunkelToolStripMenuItem_Click);
             // 
             // hellToolStripMenuItem
             // 
             this.hellToolStripMenuItem.Name = "hellToolStripMenuItem";
-            this.hellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hellToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.hellToolStripMenuItem.Text = "Hell";
             this.hellToolStripMenuItem.Click += new System.EventHandler(this.hellToolStripMenuItem_Click);
             // 
             // rotToolStripMenuItem
             // 
             this.rotToolStripMenuItem.Name = "rotToolStripMenuItem";
-            this.rotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rotToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.rotToolStripMenuItem.Text = "Rot";
             this.rotToolStripMenuItem.Click += new System.EventHandler(this.rotToolStripMenuItem_Click);
             // 
             // grünToolStripMenuItem
             // 
             this.grünToolStripMenuItem.Name = "grünToolStripMenuItem";
-            this.grünToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grünToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.grünToolStripMenuItem.Text = "Grün";
             this.grünToolStripMenuItem.Click += new System.EventHandler(this.grünToolStripMenuItem_Click);
             // 
             // blauToolStripMenuItem
             // 
             this.blauToolStripMenuItem.Name = "blauToolStripMenuItem";
-            this.blauToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blauToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.blauToolStripMenuItem.Text = "Blau";
             this.blauToolStripMenuItem.Click += new System.EventHandler(this.blauToolStripMenuItem_Click);
             // 
