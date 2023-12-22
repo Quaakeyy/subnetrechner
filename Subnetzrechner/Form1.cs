@@ -493,6 +493,9 @@ namespace Subnetzrechner
             this.BackColor = Color.FromArgb(31, 31, 31);
             this.ForeColor = Color.White;
             UpdateButtonStyles(this, Color.Black);
+            statusStripEinstlleungInfo.BackColor = Color.FromArgb(31, 31, 31);
+            statusStripEinstlleungInfo.ForeColor = Color.White; 
+
         }
         //Setzt den Hintergrund, Labels und Buttons Zurück
         private void hellToolStripMenuItem_Click(object sender, EventArgs e)
@@ -500,6 +503,8 @@ namespace Subnetzrechner
             this.BackColor = SystemColors.Control;
             this.ForeColor = SystemColors.ControlText;
             UpdateButtonStyles(this, SystemColors.ControlText);
+            statusStripEinstlleungInfo.BackColor = SystemColors.Control;
+            statusStripEinstlleungInfo.ForeColor = SystemColors.ControlText;
         }
         //Setzt den Hintergrund Rot, Labels Weiß und Buttons Schwarz
         private void rotToolStripMenuItem_Click(object sender, EventArgs e)
@@ -507,6 +512,8 @@ namespace Subnetzrechner
             this.BackColor = Color.FromArgb(150, 0, 0);
             this.ForeColor = Color.White;
             UpdateButtonStyles(this, Color.Black);
+            statusStripEinstlleungInfo.BackColor = Color.FromArgb(150, 0, 0);
+            statusStripEinstlleungInfo.ForeColor = Color.White;
         }
         //Setzt den Hintergrund Grün, Labels Weiß und Buttons Schwarz
         private void grünToolStripMenuItem_Click(object sender, EventArgs e)
@@ -514,6 +521,8 @@ namespace Subnetzrechner
             this.BackColor = Color.FromArgb(0, 150, 0);
             this.ForeColor = Color.White;
             UpdateButtonStyles(this, Color.Black);
+            statusStripEinstlleungInfo.BackColor = Color.FromArgb(0, 150, 0);
+            statusStripEinstlleungInfo.ForeColor = Color.White;
         }
         //Setzt den Hintergrund Blau, Labels Weiß und Buttons Schwarz
         private void blauToolStripMenuItem_Click(object sender, EventArgs e)
@@ -521,6 +530,8 @@ namespace Subnetzrechner
             this.BackColor = Color.FromArgb(0, 0, 150);
             this.ForeColor = Color.White;
             UpdateButtonStyles(this, Color.Black);
+            statusStripEinstlleungInfo.BackColor = Color.FromArgb(0, 0, 150);
+            statusStripEinstlleungInfo.ForeColor = Color.White;
         }
 
         private void statusStripEinstlleungInfo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

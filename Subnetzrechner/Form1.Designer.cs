@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewNetzwerkRechner));
             this.IP_Adresse = new System.Windows.Forms.Label();
             this.CIDR_Suffix = new System.Windows.Forms.Label();
             this.Netzwerkmask = new System.Windows.Forms.Label();
@@ -56,7 +55,7 @@
             this.comboBoxCIDR_Suffix = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.statusStripEinstlleungInfo = new System.Windows.Forms.StatusStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripDropDownButtonEinstellung = new System.Windows.Forms.ToolStripDropDownButton();
             this.hintergrundfarbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dunkelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -344,7 +343,7 @@
             // 
             this.statusStripEinstlleungInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusStripEinstlleungInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButtonEinstellung});
             this.statusStripEinstlleungInfo.Location = new System.Drawing.Point(0, 0);
             this.statusStripEinstlleungInfo.Name = "statusStripEinstlleungInfo";
             this.statusStripEinstlleungInfo.Size = new System.Drawing.Size(301, 22);
@@ -352,16 +351,15 @@
             this.statusStripEinstlleungInfo.Text = "statusStrip1";
             this.statusStripEinstlleungInfo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStripEinstlleungInfo_ItemClicked);
             // 
-            // toolStripDropDownButton1
+            // toolStripDropDownButtonEinstellung
             // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButtonEinstellung.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButtonEinstellung.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hintergrundfarbeToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::Subnetzrechner.Properties.Resources.settingscog_87317;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButtonEinstellung";
+            this.toolStripDropDownButtonEinstellung.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonEinstellung.Name = "toolStripDropDownButtonEinstellung";
+            this.toolStripDropDownButtonEinstellung.Size = new System.Drawing.Size(78, 20);
+            this.toolStripDropDownButtonEinstellung.Text = "Einstellung";
             // 
             // hintergrundfarbeToolStripMenuItem
             // 
@@ -372,7 +370,7 @@
             this.grünToolStripMenuItem,
             this.blauToolStripMenuItem});
             this.hintergrundfarbeToolStripMenuItem.Name = "hintergrundfarbeToolStripMenuItem";
-            this.hintergrundfarbeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.hintergrundfarbeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hintergrundfarbeToolStripMenuItem.Text = "Hintergrundfarbe";
             // 
             // dunkelToolStripMenuItem
@@ -444,7 +442,6 @@
             this.Controls.Add(this.IP_Adresse);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewNetzwerkRechner";
             this.Text = "Subnetzrechner";
             this.Load += new System.EventHandler(this.ViewNetzwerkRechner_Load);
@@ -483,7 +480,7 @@
         private System.Windows.Forms.ComboBox comboBoxCIDR_Suffix;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.StatusStrip statusStripEinstlleungInfo;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonEinstellung;
         private System.Windows.Forms.ToolStripMenuItem hintergrundfarbeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dunkelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hellToolStripMenuItem;
