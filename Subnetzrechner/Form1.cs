@@ -201,7 +201,7 @@ namespace Subnetzrechner
 
                 int numberOfHosts = CalculateNumberOfHosts(cidrSuffix);
                 textBoxAnzahlHosts.Text = numberOfHosts.ToString();
-                //sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+               
                 string Subnetmask = CalculateSubnetMask(cidrSuffix);
                 textBoxNetzwerkmask.Text = Subnetmask;
 
