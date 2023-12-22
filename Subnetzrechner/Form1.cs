@@ -56,7 +56,15 @@ namespace Subnetzrechner
                     break;
                 }
             }
+            foreach(Control control in Controls)
+            {       
+                if (control is TextBox textBox && textBox != textBoxIP_Adresse && textBox != textBoxNetzwerkmask)
+                {
+                    textBox.Clear();
+                }
+            }
         }
+    
 
         private string BerechneSubnetMaskVonIP(string ipAddress)
         {
