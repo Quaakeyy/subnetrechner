@@ -47,7 +47,7 @@ namespace Subnetzrechner
                 {
                     textBoxIP_Adresse.Text = ip.ToString();
 
-                    string subnetMask = CalculateSubnetMaskFromIP(ip.ToString());
+                    string subnetMask = BerechneSubnetMaskVonIP(ip.ToString());
                     int cidrSuffix = CalculateCIDRSuffixFromSubnetMask(subnetMask);
 
                     textBoxNetzwerkmask.Text = subnetMask;
@@ -58,7 +58,7 @@ namespace Subnetzrechner
             }
         }
 
-        private string CalculateSubnetMaskFromIP(string ipAddress)
+        private string BerechneSubnetMaskVonIP(string ipAddress)
         {
             if (IPAddress.TryParse(ipAddress, out IPAddress ip))
             {
@@ -67,21 +67,21 @@ namespace Subnetzrechner
                 // Prüfe private IP-Adressbereiche
                 if (addressBytes[0] == 10)
                 {
-                    return "255.0.0.0"; // Class A Private IP
+                    return "255.0.0.0"; 
                 }
                 else if (addressBytes[0] == 172 && addressBytes[1] >= 16 && addressBytes[1] <= 31)
                 {
-                    return "255.255.0.0"; // Class B Private IP
+                    return "255.255.0.0"; 
                 }
                 else if (addressBytes[0] == 192 && addressBytes[1] == 168)
                 {
-                    return "255.255.255.0"; // Class C Private IP
+                    return "255.255.255.0"; 
                 }
 
-                return "255.255.255.0"; // Standard-Subnetzmaske
+                return "255.255.255.0"; 
             }
 
-            return "255.255.255.0"; // Fallback auf Standard-Subnetzmaske im Fehlerfall
+            return "255.255.255.0";
         }
 
         private int CalculateCIDRSuffixFromSubnetMask(string subnetMask)
@@ -104,40 +104,30 @@ namespace Subnetzrechner
 
             return cidrSuffix;
         }
-
+        //Setzt alle Textboxen zurück
         private void buttonReset_Click(object sender, EventArgs e)
-        {
-            // Nutze LINQ, um alle TextBox-Controls zu filtern und dann die Text-Eigenschaft zurückzusetzen
+        {        
             Controls.OfType<TextBox>().ToList().ForEach(textBox => textBox.Clear());
             comboBoxCIDR_Suffix.ResetText();
-
-            // Hier können Sie auch die Ergebnisse zurücksetzen oder die Reset-Logik implementieren
         }
-
+        //Generiert eine zufällige IP und CIDR Suffix und berechnet diese automatisch
         private void buttonRandom_Click(object sender, EventArgs e)
         {
             Random random = new Random();
+   
+            string randomIpAddress = $"{random.Next(1,255)}.{random.Next(0, 255)}.{random.Next(0, 255)}.{random.Next(0, 255)}";
 
-            // Wählen Sie eine zufällige öffentliche IP-Adresse aus (Beispiel)
-            string randomIpAddress = $"{random.Next(1, 224)}.{random.Next(0, 256)}.{random.Next(0, 256)}.{random.Next(1, 256)}";
-
-
-
-            // Setzen Sie die TextBox auf die zufällige IP-Adresse
             textBoxIP_Adresse.Text = randomIpAddress;
 
-            // Wählen Sie ein zufälliges CIDR-Suffix zwischen 8 und 30
-            int randomCidrSuffix = random.Next(0, 33);
+            int randomCidrSuffix = random.Next(0, 32);
             comboBoxCIDR_Suffix.Text = randomCidrSuffix.ToString();
 
-            // Berechnen und setzen Sie die Subnetzmaske basierend auf dem zufälligen CIDR-Suffix
-            string subnetMask = CalculateSubnetMask(randomCidrSuffix);
+            string subnetMask = SubnetMaskBerechnen(randomCidrSuffix);
             textBoxNetzwerkmask.Text = subnetMask;
 
-            // Führen Sie die Berechnung durch und speichern Sie die Ergebnisse
-            BerechnungDurchführenNeu();
+            BerechnungDurchführen();
         }
-
+        //Berechnet die engetragenen werte und gibt Fehler aus
         private void buttonBerechnen_Click(object sender, EventArgs e)
         {
             
@@ -163,7 +153,7 @@ namespace Subnetzrechner
                 }
             }
 
-            if (BerechnungDurchführenNeu())
+            if (BerechnungDurchführen())
             {
                 MessageBox.Show("Berechnung erfolgreich durchgeführt und Ergebnisse gespeichert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -172,48 +162,48 @@ namespace Subnetzrechner
                 MessageBox.Show("Ungültige Berechnung.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private bool BerechnungDurchführenNeu()
+        //Berechnet die eingetragenen werte
+        private bool BerechnungDurchführen()
         {
             if (int.TryParse(comboBoxCIDR_Suffix.Text, out int cidrSuffix))
             {
-                string inverseSubnetMask = CalculateInverseSubnetMask(cidrSuffix);
+                string inverseSubnetMask = InverseSubnetMaskBerechnen(cidrSuffix);
                 textBoxInverseNetzwerkmask.Text = inverseSubnetMask;
 
-                string networkAddress = CalculateNetworkAddress(textBoxIP_Adresse.Text, cidrSuffix);
+                string networkAddress = NetzwerkAddresseBerechnen(textBoxIP_Adresse.Text, cidrSuffix);
 
-                // Überprüfen, ob CalculateNetworkAddress erfolgreich war
+                // Überprüfen ob CalculateNetworkAddress erfolgreich war
                 if (string.IsNullOrEmpty(networkAddress))
                 {
-                    // Lösche die anderen Ergebnisse
+                    // Löscht die anderen Ergebnisse
                     ErgebnisseLöschen();
-                    return false; // Berechnung nicht erfolgreich
+                    return false; 
                 }
 
                 textBoxNetzadresse.Text = networkAddress;
 
-                string broadcastAddress = CalculateBroadcastAddress(textBoxIP_Adresse.Text, cidrSuffix);
+                string broadcastAddress = BroadcastAddressBerechnen(textBoxIP_Adresse.Text, cidrSuffix);
                 textBoxBroadcast.Text = broadcastAddress;
 
-                CalculateHostIPs(textBoxIP_Adresse.Text, cidrSuffix, out string hostIPvon, out string hostIPbis);
+                HostIPsBerechnen(textBoxIP_Adresse.Text, cidrSuffix, out string hostIPvon, out string hostIPbis);
                 textBoxHostIPSvon.Text = hostIPvon;
                 textBoxBis.Text = hostIPbis;
 
-                int numberOfHosts = CalculateNumberOfHosts(cidrSuffix);
+                int numberOfHosts = AnzahlDerHostsBerechnen(cidrSuffix);
                 textBoxAnzahlHosts.Text = numberOfHosts.ToString();
                
-                string Subnetmask = CalculateSubnetMask(cidrSuffix);
+                string Subnetmask = SubnetMaskBerechnen(cidrSuffix);
                 textBoxNetzwerkmask.Text = Subnetmask;
 
 
-                // Ergebnisse in XML speichern
-                SaveResultsToXml();
+                // Speichert die ergebnise in einer XML
+                ErgebnisseInXmlSpeichern();
 
-                return true; // Berechnung erfolgreich
+                return true; //brechnung erfolgreich
             }
             else
             {
-                // Ungültiges CIDR-Suffix, Lösche die Ergebnisse
+                // Löscht ergebnisse
                 ErgebnisseLöschen();
                 return false; // Berechnung nicht erfolgreich
             }
@@ -236,7 +226,7 @@ namespace Subnetzrechner
             textBoxAnzahlHosts.Text = string.Empty;
             ErgebnisseLöschenXml();
         }
-
+        //Speichert alle Daten in eimem textdocumment
         private void buttonSpeichern_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -247,13 +237,13 @@ namespace Subnetzrechner
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string results = GenerateResultsString();
+                string results = ErstelleErgebnisseString();
                 File.WriteAllText(saveFileDialog.FileName, results);
                 MessageBox.Show("Die Ergebnisse wurden erfolgreich gespeichert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private string GenerateResultsString()
+        private string ErstelleErgebnisseString()
         {
             return 
                    $"IP-Adresse: {textBoxIP_Adresse.Text}\r\n" +
@@ -266,37 +256,8 @@ namespace Subnetzrechner
                    $"Host-IPs (bis): {textBoxBis.Text}\r\n" +
                    $"Anzahl der Hosts: {textBoxAnzahlHosts.Text}\r\n";
         }
-
-        private void BerechnungDurchführen()
-        {
-            if (int.TryParse(comboBoxCIDR_Suffix.Text, out int cidrSuffix))
-            {
-                string inverseSubnetMask = CalculateInverseSubnetMask(cidrSuffix);
-                textBoxInverseNetzwerkmask.Text = inverseSubnetMask;
-
-                string networkAddress = CalculateNetworkAddress(textBoxIP_Adresse.Text, cidrSuffix);
-                textBoxNetzadresse.Text = networkAddress;
-
-                string broadcastAddress = CalculateBroadcastAddress(textBoxIP_Adresse.Text, cidrSuffix);
-                textBoxBroadcast.Text = broadcastAddress;
-
-                CalculateHostIPs(textBoxIP_Adresse.Text, cidrSuffix, out string hostIPvon, out string hostIPbis);
-                textBoxHostIPSvon.Text = hostIPvon;
-                textBoxBis.Text = hostIPbis;
-
-                int numberOfHosts = CalculateNumberOfHosts(cidrSuffix);
-                textBoxAnzahlHosts.Text = numberOfHosts.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Ungültiges CIDR-Suffix.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            // Nachdem die Berechnung durchgeführt wurde, speichere die Ergebnisse automatisch in einer XML-Datei
-            SaveResultsToXml();
-        }
-
-        private void SaveResultsToXml()
+        //Speichert werte in einer XML Dokument
+        private void ErgebnisseInXmlSpeichern()
         {
             // XML-Dokument erstellen oder vorhandenes öffnen
             XmlDocument xmlDoc = new XmlDocument();
@@ -344,7 +305,7 @@ namespace Subnetzrechner
             parentNode.AppendChild(newElement);
         }
 
-        private string CalculateSubnetMask(int cidrSuffix)
+        private string SubnetMaskBerechnen(int cidrSuffix)
         {
             if (cidrSuffix < 0 || cidrSuffix > 32)
             {
@@ -360,7 +321,7 @@ namespace Subnetzrechner
             return $"{maskBytes[0]}.{maskBytes[1]}.{maskBytes[2]}.{maskBytes[3]}";
         }
 
-        private string CalculateInverseSubnetMask(int cidrSuffix)
+        private string InverseSubnetMaskBerechnen(int cidrSuffix)
         {
             if (cidrSuffix < 0 || cidrSuffix > 32)
             {
@@ -379,13 +340,13 @@ namespace Subnetzrechner
             return new IPAddress(inverseMaskBytes).ToString();
         }
 
-        private string CalculateNetworkAddress(string ipAddress, int cidrSuffix)
+        private string NetzwerkAddresseBerechnen(string ipAddress, int cidrSuffix)
         {
             try
             {
                 IPAddress ip = IPAddress.Parse(ipAddress);
                 byte[] ipBytes = ip.GetAddressBytes();
-                byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
+                byte[] maskBytes = SubnetMaskBytesBerechnen(cidrSuffix);
 
                 byte[] networkBytes = new byte[ipBytes.Length];
                 for (int i = 0; i < ipBytes.Length; i++)
@@ -403,20 +364,20 @@ namespace Subnetzrechner
             }
         }
 
-        private byte[] CalculateSubnetMaskBytes(int cidrSuffix)
+        private byte[] SubnetMaskBytesBerechnen(int cidrSuffix)
         {
             uint subnetMaskValue = 0xFFFFFFFF << (32 - cidrSuffix);
             byte[] maskBytes = BitConverter.GetBytes(subnetMaskValue).Reverse().ToArray();
             return maskBytes;
         }
         
-        private string CalculateBroadcastAddress(string ipAddress, int cidrSuffix)
+        private string BroadcastAddressBerechnen(string ipAddress, int cidrSuffix)
         {
             try
             {
                 IPAddress ip = IPAddress.Parse(ipAddress);
                 byte[] ipBytes = ip.GetAddressBytes();
-                byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
+                byte[] maskBytes = SubnetMaskBytesBerechnen(cidrSuffix);
 
                 byte[] invertedMaskBytes = maskBytes.Select(b => (byte)~b).ToArray();
                 byte[] broadcastBytes = new byte[ipBytes.Length];
@@ -434,7 +395,7 @@ namespace Subnetzrechner
             }
         }
         
-        private void CalculateHostIPs(string ipAddress, int cidrSuffix, out string hostIPvon, out string hostIPbis)
+        private void HostIPsBerechnen(string ipAddress, int cidrSuffix, out string hostIPvon, out string hostIPbis)
         {
             hostIPvon = string.Empty;
             hostIPbis = string.Empty;
@@ -443,7 +404,7 @@ namespace Subnetzrechner
             {
                 IPAddress ip = IPAddress.Parse(ipAddress);
                 byte[] ipBytes = ip.GetAddressBytes();
-                byte[] maskBytes = CalculateSubnetMaskBytes(cidrSuffix);
+                byte[] maskBytes = SubnetMaskBytesBerechnen(cidrSuffix);
 
                 byte[] invertedMaskBytes = maskBytes.Select(b => (byte)~b).ToArray();
                 byte[] networkBytes = new byte[ipBytes.Length];
@@ -455,30 +416,26 @@ namespace Subnetzrechner
                     broadcastBytes[i] = (byte)(ipBytes[i] | invertedMaskBytes[i]);
                 }
 
-                // Hier kannst du deine eigene Logik implementieren, um die erste und letzte Host-IP zu bestimmen.
-                // Derzeit sind hier nur Beispiele.
-                networkBytes[networkBytes.Length - 1]++; // Beispiel: Erste Host-IP
-                broadcastBytes[broadcastBytes.Length - 1]--; // Beispiel: Letzte Host-IP
+                networkBytes[networkBytes.Length - 1]++;
+                broadcastBytes[broadcastBytes.Length - 1]--;
 
                 hostIPvon = new IPAddress(networkBytes).ToString();
                 hostIPbis = new IPAddress(broadcastBytes).ToString();
             }
             catch (FormatException)
-            {
-                
+            { 
                 return;
             }
         }
         
-        private int CalculateNumberOfHosts(int cidrSuffix)
+        private int AnzahlDerHostsBerechnen(int cidrSuffix)
         {
-            // Hier füge deine Logik zur Berechnung der Anzahl der Hosts ein
             return (int)Math.Pow(2, 32 - cidrSuffix) - 2;
         }
-
+        // Kopiert alle werte von den Textboxen
         private void buttonCopy_Click(object sender, EventArgs e)
         {
-            string allText = GenerateResultsString();
+            string allText = ErstelleErgebnisseString();
             Clipboard.SetText(allText);
         }
 
@@ -486,7 +443,6 @@ namespace Subnetzrechner
         {
             if (File.Exists("berechnungen.xml"))
             {
-                // Lade die XML-Datei und wähle das letzte Berechnungs-Element aus
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("berechnungen.xml");
 
