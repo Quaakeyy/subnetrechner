@@ -568,7 +568,7 @@ namespace Subnetzrechner
         {
             this.statusStripEinstlleungInfo.SizingGrip = false;
             ShowInTaskbar = true;
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            
         }
 
         private void comboBoxCIDR_Suffix_SelectedIndexChanged(object sender, EventArgs e)

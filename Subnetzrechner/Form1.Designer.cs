@@ -69,151 +69,160 @@
             // IP_Adresse
             // 
             this.IP_Adresse.AutoSize = true;
-            this.IP_Adresse.Location = new System.Drawing.Point(12, 61);
+            this.IP_Adresse.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IP_Adresse.Location = new System.Drawing.Point(12, 66);
             this.IP_Adresse.Name = "IP_Adresse";
-            this.IP_Adresse.Size = new System.Drawing.Size(61, 13);
+            this.IP_Adresse.Size = new System.Drawing.Size(69, 15);
             this.IP_Adresse.TabIndex = 1;
             this.IP_Adresse.Text = "IP Adresse:";
             // 
             // CIDR_Suffix
             // 
             this.CIDR_Suffix.AutoSize = true;
-            this.CIDR_Suffix.Location = new System.Drawing.Point(12, 86);
+            this.CIDR_Suffix.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CIDR_Suffix.Location = new System.Drawing.Point(12, 93);
             this.CIDR_Suffix.Name = "CIDR_Suffix";
-            this.CIDR_Suffix.Size = new System.Drawing.Size(65, 13);
+            this.CIDR_Suffix.Size = new System.Drawing.Size(73, 15);
             this.CIDR_Suffix.TabIndex = 2;
             this.CIDR_Suffix.Text = "CIDR-Suffix:";
             // 
             // Netzwerkmask
             // 
             this.Netzwerkmask.AutoSize = true;
-            this.Netzwerkmask.Location = new System.Drawing.Point(12, 130);
+            this.Netzwerkmask.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Netzwerkmask.Location = new System.Drawing.Point(12, 140);
             this.Netzwerkmask.Name = "Netzwerkmask";
-            this.Netzwerkmask.Size = new System.Drawing.Size(86, 13);
+            this.Netzwerkmask.Size = new System.Drawing.Size(98, 15);
             this.Netzwerkmask.TabIndex = 3;
             this.Netzwerkmask.Text = "Netzwerkmaske:";
             // 
             // InverseNetzwerkmask
             // 
             this.InverseNetzwerkmask.AutoSize = true;
-            this.InverseNetzwerkmask.Location = new System.Drawing.Point(12, 156);
+            this.InverseNetzwerkmask.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InverseNetzwerkmask.Location = new System.Drawing.Point(12, 168);
             this.InverseNetzwerkmask.Name = "InverseNetzwerkmask";
-            this.InverseNetzwerkmask.Size = new System.Drawing.Size(124, 13);
+            this.InverseNetzwerkmask.Size = new System.Drawing.Size(141, 15);
             this.InverseNetzwerkmask.TabIndex = 4;
             this.InverseNetzwerkmask.Text = "Inverse Netzwerkmaske:";
             // 
             // AnzahlHosts
             // 
             this.AnzahlHosts.AutoSize = true;
-            this.AnzahlHosts.Location = new System.Drawing.Point(12, 179);
+            this.AnzahlHosts.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AnzahlHosts.Location = new System.Drawing.Point(12, 193);
             this.AnzahlHosts.Name = "AnzahlHosts";
-            this.AnzahlHosts.Size = new System.Drawing.Size(72, 13);
+            this.AnzahlHosts.Size = new System.Drawing.Size(82, 15);
             this.AnzahlHosts.TabIndex = 5;
             this.AnzahlHosts.Text = "Anzahl Hosts:";
             // 
             // Netzadresse
             // 
             this.Netzadresse.AutoSize = true;
-            this.Netzadresse.Location = new System.Drawing.Point(12, 205);
+            this.Netzadresse.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Netzadresse.Location = new System.Drawing.Point(12, 221);
             this.Netzadresse.Name = "Netzadresse";
-            this.Netzadresse.Size = new System.Drawing.Size(69, 13);
+            this.Netzadresse.Size = new System.Drawing.Size(80, 15);
             this.Netzadresse.TabIndex = 6;
             this.Netzadresse.Text = "Netzadresse:";
             // 
             // Broadcast
             // 
             this.Broadcast.AutoSize = true;
-            this.Broadcast.Location = new System.Drawing.Point(12, 229);
+            this.Broadcast.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Broadcast.Location = new System.Drawing.Point(12, 247);
             this.Broadcast.Name = "Broadcast";
-            this.Broadcast.Size = new System.Drawing.Size(58, 13);
+            this.Broadcast.Size = new System.Drawing.Size(66, 15);
             this.Broadcast.TabIndex = 7;
             this.Broadcast.Text = "Broadcast:";
             // 
             // HostIPSvon
             // 
             this.HostIPSvon.AutoSize = true;
-            this.HostIPSvon.Location = new System.Drawing.Point(9, 270);
+            this.HostIPSvon.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HostIPSvon.Location = new System.Drawing.Point(12, 291);
             this.HostIPSvon.Name = "HostIPSvon";
-            this.HostIPSvon.Size = new System.Drawing.Size(70, 13);
+            this.HostIPSvon.Size = new System.Drawing.Size(79, 15);
             this.HostIPSvon.TabIndex = 8;
             this.HostIPSvon.Text = "Host-Ips von:";
             // 
             // bis
             // 
             this.bis.AutoSize = true;
-            this.bis.Location = new System.Drawing.Point(12, 296);
+            this.bis.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bis.Location = new System.Drawing.Point(12, 319);
             this.bis.Name = "bis";
-            this.bis.Size = new System.Drawing.Size(23, 13);
+            this.bis.Size = new System.Drawing.Size(27, 15);
             this.bis.TabIndex = 9;
             this.bis.Text = "bis:";
             // 
             // textBoxIP_Adresse
             // 
-            this.textBoxIP_Adresse.Location = new System.Drawing.Point(140, 54);
+            this.textBoxIP_Adresse.Location = new System.Drawing.Point(159, 58);
             this.textBoxIP_Adresse.Name = "textBoxIP_Adresse";
-            this.textBoxIP_Adresse.Size = new System.Drawing.Size(150, 20);
+            this.textBoxIP_Adresse.Size = new System.Drawing.Size(131, 20);
             this.textBoxIP_Adresse.TabIndex = 11;
             // 
             // textBoxNetzwerkmask
             // 
-            this.textBoxNetzwerkmask.Location = new System.Drawing.Point(140, 124);
+            this.textBoxNetzwerkmask.Location = new System.Drawing.Point(159, 134);
             this.textBoxNetzwerkmask.Name = "textBoxNetzwerkmask";
-            this.textBoxNetzwerkmask.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNetzwerkmask.Size = new System.Drawing.Size(131, 20);
             this.textBoxNetzwerkmask.TabIndex = 13;
             // 
             // textBoxInverseNetzwerkmask
             // 
-            this.textBoxInverseNetzwerkmask.Location = new System.Drawing.Point(140, 150);
+            this.textBoxInverseNetzwerkmask.Location = new System.Drawing.Point(159, 162);
             this.textBoxInverseNetzwerkmask.Name = "textBoxInverseNetzwerkmask";
             this.textBoxInverseNetzwerkmask.ReadOnly = true;
-            this.textBoxInverseNetzwerkmask.Size = new System.Drawing.Size(150, 20);
+            this.textBoxInverseNetzwerkmask.Size = new System.Drawing.Size(131, 20);
             this.textBoxInverseNetzwerkmask.TabIndex = 14;
             // 
             // textBoxAnzahlHosts
             // 
-            this.textBoxAnzahlHosts.Location = new System.Drawing.Point(140, 176);
+            this.textBoxAnzahlHosts.Location = new System.Drawing.Point(159, 190);
             this.textBoxAnzahlHosts.Name = "textBoxAnzahlHosts";
-            this.textBoxAnzahlHosts.Size = new System.Drawing.Size(150, 20);
+            this.textBoxAnzahlHosts.Size = new System.Drawing.Size(131, 20);
             this.textBoxAnzahlHosts.TabIndex = 15;
             // 
             // textBoxNetzadresse
             // 
-            this.textBoxNetzadresse.Location = new System.Drawing.Point(140, 202);
+            this.textBoxNetzadresse.Location = new System.Drawing.Point(159, 218);
             this.textBoxNetzadresse.Name = "textBoxNetzadresse";
             this.textBoxNetzadresse.ReadOnly = true;
-            this.textBoxNetzadresse.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNetzadresse.Size = new System.Drawing.Size(131, 20);
             this.textBoxNetzadresse.TabIndex = 16;
             // 
             // textBoxBroadcast
             // 
-            this.textBoxBroadcast.Location = new System.Drawing.Point(140, 228);
+            this.textBoxBroadcast.Location = new System.Drawing.Point(159, 246);
             this.textBoxBroadcast.Name = "textBoxBroadcast";
             this.textBoxBroadcast.ReadOnly = true;
-            this.textBoxBroadcast.Size = new System.Drawing.Size(150, 20);
+            this.textBoxBroadcast.Size = new System.Drawing.Size(131, 20);
             this.textBoxBroadcast.TabIndex = 17;
             // 
             // textBoxHostIPSvon
             // 
-            this.textBoxHostIPSvon.Location = new System.Drawing.Point(140, 267);
+            this.textBoxHostIPSvon.Location = new System.Drawing.Point(159, 288);
             this.textBoxHostIPSvon.Name = "textBoxHostIPSvon";
             this.textBoxHostIPSvon.ReadOnly = true;
-            this.textBoxHostIPSvon.Size = new System.Drawing.Size(150, 20);
+            this.textBoxHostIPSvon.Size = new System.Drawing.Size(131, 20);
             this.textBoxHostIPSvon.TabIndex = 18;
             // 
             // textBoxBis
             // 
-            this.textBoxBis.Location = new System.Drawing.Point(140, 293);
+            this.textBoxBis.Location = new System.Drawing.Point(159, 316);
             this.textBoxBis.Name = "textBoxBis";
             this.textBoxBis.ReadOnly = true;
-            this.textBoxBis.Size = new System.Drawing.Size(150, 20);
+            this.textBoxBis.Size = new System.Drawing.Size(131, 20);
             this.textBoxBis.TabIndex = 19;
             // 
             // buttonCopy
             // 
             this.buttonCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCopy.Location = new System.Drawing.Point(12, 458);
+            this.buttonCopy.Location = new System.Drawing.Point(12, 493);
             this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(64, 20);
+            this.buttonCopy.Size = new System.Drawing.Size(64, 22);
             this.buttonCopy.TabIndex = 20;
             this.buttonCopy.Text = "Copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
@@ -221,9 +230,9 @@
             // 
             // buttonSpeichern
             // 
-            this.buttonSpeichern.Location = new System.Drawing.Point(226, 458);
+            this.buttonSpeichern.Location = new System.Drawing.Point(226, 493);
             this.buttonSpeichern.Name = "buttonSpeichern";
-            this.buttonSpeichern.Size = new System.Drawing.Size(64, 20);
+            this.buttonSpeichern.Size = new System.Drawing.Size(64, 22);
             this.buttonSpeichern.TabIndex = 21;
             this.buttonSpeichern.Text = "Speichern";
             this.buttonSpeichern.UseVisualStyleBackColor = true;
@@ -231,9 +240,9 @@
             // 
             // buttondeine_IP
             // 
-            this.buttondeine_IP.Location = new System.Drawing.Point(120, 458);
+            this.buttondeine_IP.Location = new System.Drawing.Point(120, 493);
             this.buttondeine_IP.Name = "buttondeine_IP";
-            this.buttondeine_IP.Size = new System.Drawing.Size(58, 20);
+            this.buttondeine_IP.Size = new System.Drawing.Size(58, 22);
             this.buttondeine_IP.TabIndex = 23;
             this.buttondeine_IP.Text = "Deine IP";
             this.buttondeine_IP.UseVisualStyleBackColor = true;
@@ -241,9 +250,9 @@
             // 
             // buttonRandom
             // 
-            this.buttonRandom.Location = new System.Drawing.Point(166, 397);
+            this.buttonRandom.Location = new System.Drawing.Point(159, 426);
             this.buttonRandom.Name = "buttonRandom";
-            this.buttonRandom.Size = new System.Drawing.Size(106, 20);
+            this.buttonRandom.Size = new System.Drawing.Size(130, 22);
             this.buttonRandom.TabIndex = 24;
             this.buttonRandom.Text = "Random";
             this.buttonRandom.UseVisualStyleBackColor = true;
@@ -251,19 +260,19 @@
             // 
             // NetzwerkRechner
             // 
-            this.NetzwerkRechner.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NetzwerkRechner.Location = new System.Drawing.Point(59, 22);
+            this.NetzwerkRechner.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NetzwerkRechner.Location = new System.Drawing.Point(59, 24);
             this.NetzwerkRechner.Name = "NetzwerkRechner";
-            this.NetzwerkRechner.Size = new System.Drawing.Size(185, 23);
+            this.NetzwerkRechner.Size = new System.Drawing.Size(185, 25);
             this.NetzwerkRechner.TabIndex = 25;
             this.NetzwerkRechner.Text = "IP-Subnetzrechner";
             this.NetzwerkRechner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(166, 345);
+            this.buttonReset.Location = new System.Drawing.Point(159, 370);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(106, 20);
+            this.buttonReset.Size = new System.Drawing.Size(130, 22);
             this.buttonReset.TabIndex = 29;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -271,9 +280,9 @@
             // 
             // buttonRechnen
             // 
-            this.buttonRechnen.Location = new System.Drawing.Point(166, 319);
+            this.buttonRechnen.Location = new System.Drawing.Point(159, 342);
             this.buttonRechnen.Name = "buttonRechnen";
-            this.buttonRechnen.Size = new System.Drawing.Size(106, 20);
+            this.buttonRechnen.Size = new System.Drawing.Size(130, 22);
             this.buttonRechnen.TabIndex = 27;
             this.buttonRechnen.Text = "Berechnen";
             this.buttonRechnen.UseVisualStyleBackColor = true;
@@ -315,17 +324,17 @@
             "30",
             "31",
             "32"});
-            this.comboBoxCIDR_Suffix.Location = new System.Drawing.Point(140, 86);
+            this.comboBoxCIDR_Suffix.Location = new System.Drawing.Point(159, 93);
             this.comboBoxCIDR_Suffix.Name = "comboBoxCIDR_Suffix";
-            this.comboBoxCIDR_Suffix.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxCIDR_Suffix.Size = new System.Drawing.Size(131, 22);
             this.comboBoxCIDR_Suffix.TabIndex = 12;
             this.comboBoxCIDR_Suffix.SelectedIndexChanged += new System.EventHandler(this.comboBoxCIDR_Suffix_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(166, 371);
+            this.button1.Location = new System.Drawing.Point(159, 398);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 20);
+            this.button1.Size = new System.Drawing.Size(130, 22);
             this.button1.TabIndex = 28;
             this.button1.Text = "Letzte Berechnung";
             this.button1.UseVisualStyleBackColor = true;
@@ -338,7 +347,7 @@
             this.toolStripDropDownButton1});
             this.statusStripEinstlleungInfo.Location = new System.Drawing.Point(0, 0);
             this.statusStripEinstlleungInfo.Name = "statusStripEinstlleungInfo";
-            this.statusStripEinstlleungInfo.Size = new System.Drawing.Size(302, 22);
+            this.statusStripEinstlleungInfo.Size = new System.Drawing.Size(301, 22);
             this.statusStripEinstlleungInfo.TabIndex = 30;
             this.statusStripEinstlleungInfo.Text = "statusStrip1";
             this.statusStripEinstlleungInfo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStripEinstlleungInfo_ItemClicked);
@@ -403,9 +412,9 @@
             // 
             // ViewNetzwerkRechner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 490);
+            this.ClientSize = new System.Drawing.Size(301, 528);
             this.Controls.Add(this.statusStripEinstlleungInfo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCIDR_Suffix);
@@ -433,6 +442,7 @@
             this.Controls.Add(this.Netzwerkmask);
             this.Controls.Add(this.CIDR_Suffix);
             this.Controls.Add(this.IP_Adresse);
+            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewNetzwerkRechner";
