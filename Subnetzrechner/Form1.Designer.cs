@@ -220,7 +220,7 @@
             // buttonCopy
             // 
             this.buttonCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCopy.Location = new System.Drawing.Point(12, 493);
+            this.buttonCopy.Location = new System.Drawing.Point(15, 472);
             this.buttonCopy.Name = "buttonCopy";
             this.buttonCopy.Size = new System.Drawing.Size(64, 22);
             this.buttonCopy.TabIndex = 20;
@@ -230,7 +230,7 @@
             // 
             // buttonSpeichern
             // 
-            this.buttonSpeichern.Location = new System.Drawing.Point(226, 493);
+            this.buttonSpeichern.Location = new System.Drawing.Point(226, 472);
             this.buttonSpeichern.Name = "buttonSpeichern";
             this.buttonSpeichern.Size = new System.Drawing.Size(64, 22);
             this.buttonSpeichern.TabIndex = 21;
@@ -240,7 +240,7 @@
             // 
             // buttondeine_IP
             // 
-            this.buttondeine_IP.Location = new System.Drawing.Point(120, 493);
+            this.buttondeine_IP.Location = new System.Drawing.Point(121, 472);
             this.buttondeine_IP.Name = "buttondeine_IP";
             this.buttondeine_IP.Size = new System.Drawing.Size(58, 22);
             this.buttondeine_IP.TabIndex = 23;
@@ -414,7 +414,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 528);
+            this.ClientSize = new System.Drawing.Size(301, 504);
             this.Controls.Add(this.statusStripEinstlleungInfo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCIDR_Suffix);
